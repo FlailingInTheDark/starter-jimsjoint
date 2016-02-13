@@ -13,10 +13,12 @@ Team Members:
 --------------------------------------------------------------------------------
 
 Gosse, Richard:
-    -
+    - 3: Handle a New Order
 
 Fernandez de Arteaga, Erick:
-    - 
+    - 1: Configuration
+    - 2: Home Page
+    - 4: Handle Order Display
 
 --------------------------------------------------------------------------------
     For Developers
