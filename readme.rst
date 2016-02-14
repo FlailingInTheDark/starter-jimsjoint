@@ -19,6 +19,7 @@ Fernandez de Arteaga, Erick:
     - 1: Configuration
     - 2: Home Page
     - 4: Handle Order Display
+    - 5: Handle Order Additions
 
 --------------------------------------------------------------------------------
     For Developers
