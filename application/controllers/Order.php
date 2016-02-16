@@ -86,7 +86,7 @@ class Order extends Application {
         $this->data['title'] = 'Checking Out';
         $this->data['pagebody'] = 'show_order';
         $this->data['order_num'] = $order_num;
-        //FIXME
+        
 
         $this->data['total'] = number_format($this->Orders->total($order_num), 2);
         $items = $this->Orderitems->group($order_num);
@@ -96,6 +96,7 @@ class Order extends Application {
             $item->code = $menu_item->name;
         }
         $this->data['items'] = $items;
+        $this->data['okornot'] = $this->Orders->validate($order_num);
         $this->render();
     }
 
