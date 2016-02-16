@@ -29,13 +29,15 @@ class Order extends Application {
     }
 
     // add to an order
-    function display_menu($order_num = null) {
+    function display_menu($order_num = null) 
+    {
         if ($order_num == null)
             redirect('/order/neworder');
 
         $this->data['pagebody'] = 'show_menu';
         $this->data['order_num'] = $order_num;
-        $this->data['title'] = 'Making New Order: Order # ' . $order_num;
+        $this->data['title'] = 'Preparing Order #' . $order_num . '  -  Cost: $' 
+                . number_format($this->Orders->total($order_num), 2);
         
         // Make the columns
         $this->data['meals'] = $this->make_column('m');
@@ -73,8 +75,9 @@ class Order extends Application {
     }
 
     // add an item to an order
-    function add($order_num, $item) {
-        //FIXME
+    function add($order_num, $item) 
+    {
+        $this->Orders->add_item($order_num, $item);
         redirect('/order/display_menu/' . $order_num);
     }
 
