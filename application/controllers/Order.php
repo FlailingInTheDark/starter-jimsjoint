@@ -78,13 +78,21 @@ class Order extends Application {
         redirect('/order/display_menu/' . $order_num);
     }
 
-    // checkout
+    // checkout 
     function checkout($order_num) {
         $this->data['title'] = 'Checking Out';
         $this->data['pagebody'] = 'show_order';
         $this->data['order_num'] = $order_num;
         //FIXME
 
+        $this->data['total'] = number_format($this->orders->total($order_num), 2);
+        $items = $this->orderitems->group($order_num);
+        foreach ($items as $item)
+        {
+            $menu_item = $this->menu->get($item->item);
+            $item->code = $menu_item->name;
+        }
+        $this->data['items'] = items;
         $this->render();
     }
 
