@@ -14,6 +14,7 @@ Team Members:
 
 Gosse, Richard:
     - 3: Handle a New Order
+    - 6: Handle Checkout
 
 Fernandez de Arteaga, Erick:
     - 1: Configuration
