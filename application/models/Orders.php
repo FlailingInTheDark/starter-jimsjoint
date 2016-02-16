@@ -5,10 +5,12 @@
  *
  * @author jim
  */
-class Orders extends MY_Model {
+class Orders extends MY_Model 
+{
 
     // constructor
-    function __construct() {
+    function __construct() 
+    {
         parent::__construct('orders', 'num');
     }
 
@@ -16,14 +18,17 @@ class Orders extends MY_Model {
      * Adds an item (specified by $code) to an existing order (specified by 
      * $num).
      */
-    function add_item($num, $code) {
+    function add_item($num, $code) 
+        {
         $CI = & get_instance();
 
-        if ($CI->Orderitems->exists($num, $code)) {
+        if ($CI->Orderitems->exists($num, $code)) 
+                {
             $record = $CI->Orderitems->get($num, $code);
             $record->quantity++;
             $CI->Orderitems->update($record);
-        } else {
+        } else 
+            {
             $record = $CI->Orderitems->create();
             $record->order = $num;
             $record->item = $code;
@@ -35,13 +40,15 @@ class Orders extends MY_Model {
     /**
      * Calculates the total cost for an order.
      */
-    function total($num) {
+    function total($num) 
+    {
         $CI = & get_instance();
         $items = $CI->Orderitems->group($num);
         $result = 0;
 
-        if (count($items) > 0)
-            foreach ($items as $item) {
+        if (count($items) > 0) 
+            foreach ($items as $item) 
+             {
                 $menu = $CI->Menu->get($item->item);
                 $result += $item->quantity * $menu->price;
             }
@@ -50,12 +57,14 @@ class Orders extends MY_Model {
     }
 
     // retrieve the details for an order
-    function details($num) {
+    function details($num) 
+    {
         
     }
 
     // cancel an order
-    function flush($num) {
+    function flush($num) 
+    {
         
     }
 
