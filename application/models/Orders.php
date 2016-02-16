@@ -16,18 +16,14 @@ class Orders extends MY_Model {
      * Adds an item (specified by $code) to an existing order (specified by 
      * $num).
      */
-    function add_item($num, $code)
-    {
+    function add_item($num, $code) {
         $CI = & get_instance();
-        
-        if ($CI->Orderitems->exists($num, $code))
-        {
+
+        if ($CI->Orderitems->exists($num, $code)) {
             $record = $CI->Orderitems->get($num, $code);
             $record->quantity++;
             $CI->Orderitems->update($record);
-        }
-        else
-        {
+        } else {
             $record = $CI->Orderitems->create();
             $record->order = $num;
             $record->item = $code;
@@ -39,15 +35,13 @@ class Orders extends MY_Model {
     /**
      * Calculates the total cost for an order.
      */
-    function total($num) 
-    {
+    function total($num) {
         $CI = & get_instance();
         $items = $CI->Orderitems->group($num);
         $result = 0;
 
         if (count($items) > 0)
-            foreach ($items as $item)
-            {
+            foreach ($items as $item) {
                 $menu = $CI->Menu->get($item->item);
                 $result += $item->quantity * $menu->price;
             }
@@ -67,8 +61,26 @@ class Orders extends MY_Model {
 
     // validate an order
     // it must have at least one item from each category
-    function validate($num) {
-        return false;
+    function validate($num) 
+    {
+        $CI = & get_instance();
+        $items = $CI->Orderitems->group($num);
+        $gotem = array();
+        if (count($items) > 0) {
+            foreach ($items as $item) {
+                $menu = $CI->Menu->get($item->item);
+                $gotem[$menu->category] = 1;
+            }
+        }
+
+        return isset($gotem['m']) && isset($gotem['d']) && isset($gotem['s']);
+
+
+
+
+
+
+        //return false;
     }
 
 }
