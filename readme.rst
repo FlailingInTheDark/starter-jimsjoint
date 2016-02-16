@@ -1,28 +1,39 @@
-###############
-Fall2015 lab 04
-###############
+================================================================================
+                                Lab 05
+================================================================================
+ACIT 4850
+ACIT 4A
 
-This project is the starter for COMP4711 Lab 4, for the Fall 2015 session.
+Team Members:
+    Gosse, Richard
+    Fernandez de Arteaga, Erick
 
-This webapp is broken. On purpose :) 
-Your job is to fix it, following the directions in lab 04.
+--------------------------------------------------------------------------------
+    Work Completed
+--------------------------------------------------------------------------------
 
-*******************
-Server Requirements
-*******************
+Gosse, Richard:
+    - 3: Handle a New Order
+    - 6: Handle Checkout
+    - 7: Handle Completion 
 
-CodeIgniter 3.0
+Fernandez de Arteaga, Erick:
+    - 1: Configuration
+    - 2: Home Page
+    - 4: Handle Order Display
+    - 5: Handle Order Additions
 
-*******
-License
-*******
+--------------------------------------------------------------------------------
+    For Developers
+--------------------------------------------------------------------------------
+    
+    ----------------------------------------------------------------------------
+        Conventions
+    ----------------------------------------------------------------------------
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `CodeIgniter <http://codeigniter.com>`_
-
+    Allman style
+    Tab Indentation
+    UCF for classes and files
+    lowercase for names elsewhere
+    words separated by underscores
+    underscores first for internal items
